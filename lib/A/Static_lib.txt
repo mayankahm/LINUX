@@ -1,0 +1,24 @@
+Step to create and link static library
+
+1) First compile foo.c file
+	cc -c foo.c -o foo.o
+
+2) create a sstatic library
+	ar rcs lib_foo.a foo.o
+
+3)compile main file
+	cc -c main.c -o main.o
+
+4) link static library into main program
+	cc -o main main.o -L. -l_foo
+
+Test using nm command
+	nm main (you will find (T    fun) )
+
+
+You can directly test with script run and clean
+
+To run execute script like mention here
+	sh run.sh
+To clean the object file and library file run below script
+	sh clean.sh
