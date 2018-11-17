@@ -1,0 +1,18 @@
+Step to dynamic library create and bind
+1) compile foo.c bu PIC (positional independent code)
+	cc -fpic -c foo.c
+
+2) create a shared library
+	cc -shared -o lib_foo.so foo.o
+
+3) link with current programm
+	cc -L$PWD -o a.out main.c -l_foo
+
+
+4) after that run ./a.out  you wil get error
+5) echo LD_LIBRARY_PATH
+6) LD_LIBRARY_PATH=$PWD:$LD_LIBRARY_PATH
+7) export LD_LIBRARY_PATH=$PWD:$LD_LIBRARY_PATH
+8) run ./a.out
+
+
